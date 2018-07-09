@@ -119,10 +119,7 @@ namespace wj.DataTypes
             return ToString(FormatStrings.Default, null);
         }
 
-        private string GetByteFormat(bool upperCase)
-        {
-            return (upperCase ? "X" : "x") + "2";
-        }
+        private string GetByteFormat(bool upperCase) => (upperCase ? "X" : "x") + "2";
 
         private string FormatAsMsSql(bool upperCase)
         {
@@ -147,20 +144,15 @@ namespace wj.DataTypes
             return sb.ToString(1, sb.Length - 1);
         }
 
-        private ulong ValueAsULong()
-        {
-            return BitConverter.ToUInt64(Value, 0);
-        }
+        private ulong ValueAsULong() => BitConverter.ToUInt64(Value, 0);
 
-        private DateTime ValueAsDateTime()
-        {
-            return new DateTime((long)ValueAsULong());
-        }
+        private DateTime ValueAsDateTime() => new DateTime((long)ValueAsULong());
 
-        public string ToString(string formatString)
-        {
-            return ToString(formatString, System.Threading.Thread.CurrentThread.CurrentCulture);
-        }
+        public string ToString(string formatString) => 
+            ToString(formatString, System.Threading.Thread.CurrentThread.CurrentCulture);
+
+        public string ToString(IFormatProvider formatProvider) => 
+            ToString(FormatStrings.Default, formatProvider);
         #endregion
 
         #region IEquatable<TimeStamp>

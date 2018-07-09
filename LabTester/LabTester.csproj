@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9033F7BE-E0AF-48EE-B5D2-6C9A0C3DACBC}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>wj.DataTypes</RootNamespace>
-    <AssemblyName>wj.DataTypes</AssemblyName>
+    <ProjectGuid>{A434030E-085C-4E63-9BA8-8C9A02EB07B6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>LabTester</RootNamespace>
+    <AssemblyName>LabTester</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -20,21 +21,21 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,30 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CultureInfoCollection.cs" />
-    <Compile Include="CurrencyInfo.cs" />
-    <Compile Include="GenericFormatProvider.cs" />
-    <Compile Include="Money.cs" />
-    <Compile Include="Money.CustomizedFormatProvider.cs">
-      <DependentUpon>Money.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Money.FormatStrings.cs">
-      <DependentUpon>Money.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MoneyInfoCollection.cs" />
-    <Compile Include="MoneyOptions.cs" />
-    <Compile Include="RegionCulture.cs" />
-    <Compile Include="MoneyInfo.cs" />
-    <Compile Include="MoneyRegionCollection.cs" />
-    <Compile Include="MoneyRegionSelectionEventArgs.cs" />
-    <Compile Include="RowVersion.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RowVersion.FormatStrings.cs">
-      <DependentUpon>RowVersion.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wj.DataTypes\wj.DataTypes.csproj">
+      <Project>{9033F7BE-E0AF-48EE-B5D2-6C9A0C3DACBC}</Project>
+      <Name>wj.DataTypes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
